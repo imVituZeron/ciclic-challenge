@@ -1,20 +1,13 @@
 const $inputName = document.querySelector("#name-ciclic");
 const $inputMensalidade = document.querySelector("#mensalidade-ciclic");
-const $inputYear = document.querySelector("#year-ciclic");
+const $inputYear = document.querySelector("#years-ciclic");
 const $btnSimular = document.querySelector(".button-ciclic");
+const juros = 0.517;
 
-console.log('button = ', $btnSimular);
-console.log('name = ', $inputName);
-console.log('mensalidade =',$inputMensalidade);
-
-// falta coisa pra arrumar essa logica de lucro;
 simuMoney = () => {
-   let total = ($inputMensalidade.value * ((( 1 + 0.517) * 24 - 1 ) / 0.517));
+   let total = ($inputMensalidade.value * ((( 1 + juros) * $inputYear.value - 1 ) / juros));
    console.log(total);
 }
-
-
-
 
 $btnSimular.addEventListener("click", ()=> {
    simuMoney();
