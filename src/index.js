@@ -2,17 +2,21 @@ const $inputName = document.querySelector("#name-ciclic");
 const $inputMensalidade = document.querySelector("#mensalidade-ciclic");
 const $inputYear = document.querySelector("#years-ciclic");
 const $btnSimular = document.querySelector(".button-ciclic");
-const juros = 0.517;
+
+const juros = 0.00517;
+const mensal = $inputMensalidade.value;
+const year = $inputYear.value * 12;
 
 simuMoney = () => {
-   let total = ($inputMensalidade.value * ((( 1 + juros) * $inputYear.value - 1 ) / juros));
-   console.log(total);
+   
+   let total = (parseFloat(mensal) * ((( 1 + juros) * year - 1 ) / juros));
+   return parseFloat(total);
 }
 
 $btnSimular.addEventListener("click", ()=> {
    simuMoney();
-   console.log(`
-      quando clicar aqui devo fazer uma logica que vai passar o estado das variaveis
-      e ir para outra pagina`)
+
+   alert(`Olá ${$inputName.value} juntando R$${mensal}
+   todo mês, você terá ${simuMoney()} em ${$inputYear.value} Anos`);
 
 });
