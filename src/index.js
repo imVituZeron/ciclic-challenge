@@ -7,12 +7,6 @@ const juros = 0.00517;
 const mensal = $inputMensalidade.value;
 const year = $inputYear.value * 12;
 
-simuMoney = () => {
-   
-   let total = (parseFloat(mensal) * ((( 1 + juros) * year - 1 ) / juros));
-   return parseFloat(total);
-}
-
 $btnSimular.addEventListener("click", ()=> {
    simuMoney();
 
@@ -20,3 +14,8 @@ $btnSimular.addEventListener("click", ()=> {
    todo mês, você terá ${simuMoney()} em ${$inputYear.value} Anos`);
 
 });
+
+simuMoney = () => {   
+   let total = (parseFloat(mensal) * ((( 1 + juros) * year - 1 ) / juros));
+   return parseFloat(total);
+}
